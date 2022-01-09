@@ -1,1 +1,1 @@
-(()=>{"use strict";console.log("Я файл one.js"),console.log("Я файл one.js"),console.log("Я файл two.js"),console.log("asdasd")})();
+(()=>{"use strict";(()=>{const e=document.querySelector(".button"),t=document.querySelector(".header-modal");e.addEventListener("click",(e=>{(e.target.closest(".button")||e.target.closest('a[href*="#"]'))&&(t.style.display="block")}))})(),console.log("Я файл two.js")})();
