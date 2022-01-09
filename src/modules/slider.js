@@ -5,7 +5,10 @@ const slider = (right, left, slidesFields, slidesWrappers, slideses) => {
     const slides = document.querySelectorAll(`.${slideses}`);
 
     if(window.screen.width < 576) {
-        slidesWrapper.style.width = '185px';
+        if (slidesWrapper.classList.contains('benefits-wrap')) {
+            slidesWrapper.style.width = '185px';
+        }
+        
         const width = window.getComputedStyle(slidesWrapper).width;
         
         let offset = 0;
@@ -15,7 +18,9 @@ const slider = (right, left, slidesFields, slidesWrappers, slideses) => {
         slidesWrapper.style.overflow = 'hidden';
 
         slides.forEach(slide => {
-            slide.style.width = width;
+            if (slide.classList.contains('benefits__item')) {
+                slide.style.width = width;
+            }
         });
 
         window.addEventListener('click', (e) => {
@@ -37,21 +42,26 @@ const slider = (right, left, slidesFields, slidesWrappers, slideses) => {
         });
     } else {
         let offset = 0;
-
+        const width = window.getComputedStyle(slidesWrapper).width;
         slidesField.style.width = 100 * slides.length  + '%';
         slidesField.style.transition = '0.5s all';
         slidesWrapper.style.overflow = 'hidden';
 
+        
         slides.forEach(slide => {
-            slide.style.width = width;
+            if (slide.classList.contains('benefits__item')) {
+                slide.style.width = width;
+            } else {
+                slide.style.width = (+width.slice(0, width.length - 2) / 2) + 'px';
+            }
         });
-
+        
         window.addEventListener('click', (e) => {
             if (e.target.closest(`.${right}`)) {
                 if (offset === +width.slice(0, width.length - 2) * (slides.length - 1)) {
                     offset = 0;
                 } else {
-                    if(offset >= 576) {
+                    if(offset >= width.slice(0, width.length - 2)) {
                         offset = 0;
                     } else {
                         offset += +width.slice(0, width.length - 2);
@@ -61,7 +71,7 @@ const slider = (right, left, slidesFields, slidesWrappers, slideses) => {
                 slidesField.style.transform = `translateX(-${offset}px)`;
             } else if (e.target.closest(`.${left}`)) {
                 if (offset == 0) {
-                    offset = 576;
+                    offset = width.slice(0, width.length - 2);
                 } else {
                         offset -= +width.slice(0, width.length - 2);
                 }
