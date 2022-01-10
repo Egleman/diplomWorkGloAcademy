@@ -1867,6 +1867,10 @@ input.error {
   display: none;
 }
 
+.img-modal {
+  display: none;
+}
+
 .services-modal {
   display: none;
 }
@@ -1887,6 +1891,14 @@ input.error {
   z-index: 9999;
 }
 
+.img-modal--opened {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
 .header-modal__close {
   position: absolute;
   top: 5px;
@@ -1895,7 +1907,20 @@ input.error {
   cursor: pointer;
 }
 
+.img-modal__close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 36px;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+}
+
 .header-modal__close:hover {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.img-modal__close:hover {
   color: rgba(0, 0, 0, 0.35);
 }
 
