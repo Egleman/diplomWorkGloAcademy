@@ -52,6 +52,19 @@ const sendForm = ( { formID, someElem = [] } ) => {
         formData.forEach((val, key) => {
             formBody[key] = val;
         });
+
+        if(window.location.toString().indexOf('balkony.html') > 0){
+            someElem.forEach(elem => {
+                const element = document.getElementById(elem.id);
+                if (elem.type === 'block') {
+                    formBody[elem.id] = element.textContent;
+                } else if (elem.type === 'input') {
+                    formBody[elem.id] = element.value;
+                }
+            });
+        }
+        
+
         if (validate(formElements)) {
             sendData(formBody).then(data => {
                 formElements.forEach(input => {
