@@ -3,8 +3,6 @@ const modal = (btn, closeBtn, popUp) => {
     const closeBtnPopup = document.querySelectorAll(`.${closeBtn}`);
     const headerModal = document.querySelector(`.${popUp}`);
     const modal = document.querySelector('.overlay');
-    const application = document.querySelector('.imgPopup');
-    const imgFancybox = document.querySelector('.img-fancybox');
 
     function blockBody() {
         const body = document.body;
