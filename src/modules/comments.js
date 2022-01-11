@@ -53,9 +53,9 @@ const comments = () => {
         swappedArray.forEach(item => {
             arrUser.push(item);
         });
-        imgAvatar1.src = `./images/users/${arrUser[0].images ? arrUser[0].image : 'face1.png'}`;
-        imgAvatar2.src = `./images/users/${arrUser[1].images ? arrUser[1].image : 'face1.png'}`;
-        imgAvatar3.src = `./images/users/${arrUser[2].images ? arrUser[2].image : 'face1.png'}`;
+        imgAvatar1.src = `./images/users/${arrUser[0].image ? arrUser[0].image : 'face1.png'}`;
+        imgAvatar2.src = `./images/users/${arrUser[1].image ? arrUser[1].image : 'face1.png'}`;
+        imgAvatar3.src = `./images/users/${arrUser[2].image ? arrUser[2].image : 'face1.png'}`;
 
         commentsCom1.textContent = arrUser[0].comment;
         commentsCom2.textContent = arrUser[1].comment;
