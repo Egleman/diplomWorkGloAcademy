@@ -6,11 +6,15 @@ import sendForm from './modules/sendForm';
 import scroll from './modules/scrollToUp';
 import calc from './modules/calc';
 import comments from './modules/comments';
+import sliderSwiperService from './modules/sliderSwiperService';
+import sliderSwiperBenefits from './modules/sliderSwiperBenefits';
 modal('btn1', 'header-modal__close' ,'header-modal');
 modal('btn2', 'services-modal__close' ,'services-modal');
 modal('sertificate-document', 'img-modal__close', 'img-modal');
-slider('benefits__arrow--right', 'benefits__arrow--left', 'offer__slider-inner', 'benefits-wrap', 'benefits__item');
-slider('services__arrow--right', 'services__arrow--left', 'services__slider-inner', 'slider-service', 'centrify');
+//slider('benefits__arrow--right', 'benefits__arrow--left', 'offer__slider-inner', 'benefits-wrap', 'benefits__item');
+//slider('services__arrow--right', 'services__arrow--left', 'services__slider-inner', 'slider-service', 'centrify');
+sliderSwiperService();
+sliderSwiperBenefits();
 timer('15 january 2022');
 inputValidate();
 sendForm({
