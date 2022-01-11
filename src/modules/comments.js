@@ -1,15 +1,6 @@
+import { preloader, html } from './helpers';
 const comments = () => {
-    const imgAvatar1 = document.querySelector('.avatar-1');
-    const imgAvatar2 = document.querySelector('.avatar-2');
-    const imgAvatar3 = document.querySelector('.avatar-3');
-
-    const commentsName1 = document.querySelector('.comments-name-1');
-    const commentsName2 = document.querySelector('.comments-name-2');
-    const commentsName3 = document.querySelector('.comments-name-3');
-
-    const commentsCom1 = document.querySelector('.comments-comm-1');
-    const commentsCom2 = document.querySelector('.comments-comm-2');
-    const commentsCom3 = document.querySelector('.comments-comm-3');
+    const preloadDiv = document.querySelector('.preloadDiv');
 
     let newComments = {};
     let arrUser = [];
@@ -32,14 +23,27 @@ const comments = () => {
             console.log(err, 'ошибка, файл не найден');
         });
     };
+    
     const swapItems = (nextArray) => {
         const temp = nextArray[0];
         nextArray.push(temp);
         nextArray.splice(0,1);
         return nextArray;
     };
-
+    
     const render = () => {
+        const imgAvatar1 = document.querySelector('.avatar-1');
+        const imgAvatar2 = document.querySelector('.avatar-2');
+        const imgAvatar3 = document.querySelector('.avatar-3');
+
+        const commentsName1 = document.querySelector('.comments-name-1');
+        const commentsName2 = document.querySelector('.comments-name-2');
+        const commentsName3 = document.querySelector('.comments-name-3');
+
+        const commentsCom1 = document.querySelector('.comments-comm-1');
+        const commentsCom2 = document.querySelector('.comments-comm-2');
+        const commentsCom3 = document.querySelector('.comments-comm-3');
+
         let arrayCopy = Object.assign([], arrUser);
         let swappedArray = swapItems(arrayCopy);
         arrUser.splice(0);
@@ -64,11 +68,17 @@ const comments = () => {
         newComments.forEach(item => {
             arrUser.push(item);
         });
+        preloadDiv.textContent = '';
+        preloadDiv.append(preloader);
+        setTimeout(() => {
+            preloadDiv.removeChild(preloader);
+            preloadDiv.innerHTML = html;
+        }, 1000);
         render();
     });
     setInterval(()=> {
         render();
-    }, 20000);
+    }, 5000);
     
 };
 
