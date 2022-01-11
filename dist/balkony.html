@@ -797,6 +797,14 @@
 	<div class="smooth-scroll">
 		<a href="#header" class="scrollUp" style="opacity: 0;"><img class="smooth-scroll__img" src="./images/prev_arrow.png" alt="smooth"></a>
 	</div>
-    
+    <script>
+		window.onload = function () {
+		  document.body.classList.add('loaded_hiding');
+		  window.setTimeout(function () {
+			document.body.classList.add('loaded');
+			document.body.classList.remove('loaded_hiding');
+		  }, 500);
+		}
+	  </script>
 </body>
 </html>
