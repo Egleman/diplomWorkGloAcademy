@@ -19,7 +19,7 @@ const sendForm = ( { formID, someElem = [] } ) => {
                     success = false;
                     item.classList.add('error');
                 }
-            } 
+            }
         });
         
         return success;
@@ -82,7 +82,7 @@ const sendForm = ( { formID, someElem = [] } ) => {
                     modal.style.display = 'none';
                     unBlockBody();
                 }, 5000);
-
+                console.log(form);
             })
             .catch(err => {
                 console.log(err, 'ошибка');
