@@ -1,6 +1,5 @@
 import { preloader, html } from './helpers';
 const comments = () => {
-    const preloadDiv = document.querySelector('.preloadDiv');
 
     let newComments = {};
     let arrUser = [];
@@ -32,6 +31,10 @@ const comments = () => {
     };
     
     const render = () => {
+        const calc = document.querySelector('.calc-height').offsetHeight;
+        const calcComments = document.querySelector('.calc-height');
+        calcComments.style.height = calc + 'px';
+
         const imgAvatar1 = document.querySelector('.avatar-1');
         const imgAvatar2 = document.querySelector('.avatar-2');
         const imgAvatar3 = document.querySelector('.avatar-3');
@@ -68,12 +71,6 @@ const comments = () => {
         newComments.forEach(item => {
             arrUser.push(item);
         });
-        preloadDiv.textContent = '';
-        preloadDiv.append(preloader);
-        setTimeout(() => {
-            preloadDiv.removeChild(preloader);
-            preloadDiv.innerHTML = html;
-        }, 1000);
         render();
     });
     setInterval(()=> {
