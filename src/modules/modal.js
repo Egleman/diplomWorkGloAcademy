@@ -1,10 +1,10 @@
 const modal = (btn, closeBtn, popUp) => {
+    const btnPopup = document.querySelectorAll(`.${btn}`);
+    const closeBtnPopup = document.querySelectorAll(`.${closeBtn}`);
     const headerModal = document.querySelector(`.${popUp}`);
     const modal = document.querySelector('.overlay');
     const application = document.querySelector('.imgPopup');
     const imgFancybox = document.querySelector('.img-fancybox');
-
-
 
     function blockBody() {
         const body = document.body;
@@ -31,7 +31,7 @@ const modal = (btn, closeBtn, popUp) => {
         return scrollWidth;
     }
 
-
+    /*
     window.addEventListener('click', (e) => {
         if (e.target.closest(`.${btn}`)) {
             e.preventDefault();
@@ -50,7 +50,45 @@ const modal = (btn, closeBtn, popUp) => {
             unBlockBody();
         }
     });
+    
+    btnPopup.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.style.display = 'block';
+            headerModal.style.display = 'block';
+            blockBody();
+    });
+    closeBtnPopup.addEventListener('click', (e) => {
+        if (e.target.closest(`.${closeBtn}`)) {
+            e.preventDefault();
+            modal.style.display = 'none';
+            headerModal.style.display = 'none';
+            unBlockBody();
+        }
+    });
+    */
 
+    btnPopup.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.style.display = 'block';
+            headerModal.style.display = 'block';
+            blockBody();
+        });
+    });
+    closeBtnPopup.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.style.display = 'none';
+            headerModal.style.display = 'none';
+            unBlockBody();
+        });
+    });
+    modal.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.style.display = 'none';
+        headerModal.style.display = 'none';
+        unBlockBody();
+    });
 };    
 
 export default modal;

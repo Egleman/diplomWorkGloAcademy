@@ -74,7 +74,15 @@ const sendForm = ( { formID, someElem = [] } ) => {
                 statusBlock.textContent = successText;
                 setTimeout(() => {
                     statusBlock.textContent = '';
+                    const headerModal = document.querySelector(`.header-modal`);
+                    const serviceModal = document.querySelector('.services-modal');
+                    const modal = document.querySelector('.overlay');
+                    headerModal.style.display = 'none';
+                    serviceModal.style.display = 'none';
+                    modal.style.display = 'none';
+                    unBlockBody();
                 }, 5000);
+
             })
             .catch(err => {
                 console.log(err, 'ошибка');
