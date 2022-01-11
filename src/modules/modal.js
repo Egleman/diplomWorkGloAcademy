@@ -31,42 +31,6 @@ const modal = (btn, closeBtn, popUp) => {
         return scrollWidth;
     }
 
-    /*
-    window.addEventListener('click', (e) => {
-        if (e.target.closest(`.${btn}`)) {
-            e.preventDefault();
-            if (e.target.closest('.sertificate-document')) {
-                console.log(application);
-                application.style.background = 'transparent';
-                imgFancybox.style.height = '100%';
-            }
-            modal.style.display = 'block';
-            headerModal.style.display = 'block';
-            blockBody();
-        } else if (e.target.closest(`.${closeBtn}`)) {
-            e.preventDefault();
-            modal.style.display = 'none';
-            headerModal.style.display = 'none';
-            unBlockBody();
-        }
-    });
-    
-    btnPopup.addEventListener('click', (e) => {
-            e.preventDefault();
-            modal.style.display = 'block';
-            headerModal.style.display = 'block';
-            blockBody();
-    });
-    closeBtnPopup.addEventListener('click', (e) => {
-        if (e.target.closest(`.${closeBtn}`)) {
-            e.preventDefault();
-            modal.style.display = 'none';
-            headerModal.style.display = 'none';
-            unBlockBody();
-        }
-    });
-    */
-
     btnPopup.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
