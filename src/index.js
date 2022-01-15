@@ -7,11 +7,13 @@ import calc from './modules/calc';
 import comments from './modules/comments';
 import sliderSwiperService from './modules/sliderSwiperService';
 import sliderSwiperBenefits from './modules/sliderSwiperBenefits';
+import sliderSwiperComments from './modules/sliderSwiperComments';
 modal('btn1', 'header-modal__close' ,'header-modal');
 modal('btn2', 'services-modal__close' ,'services-modal');
 modal('sertificate-document', 'img-modal__close', 'img-modal');
 sliderSwiperService();
 sliderSwiperBenefits();
+sliderSwiperComments();
 timer('15 january 2022');
 inputValidate();
 sendForm({
