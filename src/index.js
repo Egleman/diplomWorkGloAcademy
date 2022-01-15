@@ -12,7 +12,7 @@ modal('btn2', 'services-modal__close' ,'services-modal');
 modal('sertificate-document', 'img-modal__close', 'img-modal');
 sliderSwiperService();
 sliderSwiperBenefits();
-timer('15 january 2022');
+timer('19 january 2022');
 inputValidate();
 sendForm({
     formID: 'form1',
